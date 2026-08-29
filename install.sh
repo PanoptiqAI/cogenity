@@ -93,7 +93,7 @@ sha256_file() {
 }
 
 temporary_dir=$(mktemp -d)
-cogenity_url="https://github.com/$repository/releases/latest/download"
+cogenity_url="https://github.com/$repository/releases/download/v0.11.1"
 bun_url="https://github.com/oven-sh/bun/releases/download/bun-v$bun_version"
 curl --proto '=https' --tlsv1.2 --fail --show-error --location \
   --output "$temporary_dir/cogenity.js" "$cogenity_url/cogenity.js"
