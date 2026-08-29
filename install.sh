@@ -2,7 +2,7 @@
 set -eu
 
 repository=PanoptiqAI/cogenity
-release_version=0.12.0
+release_version=0.14.0
 install_dir=${COGENITY_INSTALL_DIR:-"$HOME/.local/bin"}
 operating_system=$(uname -s)
 architecture=$(uname -m)
@@ -35,15 +35,12 @@ if [ "$operating_system" = Linux ]; then
   case "$libc_version" in
     glibc\ *) ;;
     *)
-      ldd_version=$(ldd --version 2>&1) || true
+      ldd_version=$(ldd --version 2>&1) || ldd_version=
       case "$ldd_version" in
-        *musl*) asset="$asset-musl" ;;
-        *) printf 'glibc or musl Linux is required.\n' >&2; exit 1 ;;
+        *musl*) printf 'musl Linux is unsupported; glibc is required.\n' >&2; exit 1 ;;
+        *) printf 'glibc Linux is required.\n' >&2; exit 1 ;;
       esac
       ;;
-  esac
-  case "$asset" in
-    cogenity-linux-x64-baseline-musl) asset=cogenity-linux-x64-musl-baseline ;;
   esac
 fi
 
