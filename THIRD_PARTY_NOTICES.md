@@ -1,17 +1,17 @@
 # Third-party notices
 
-The generated Cogenity bundle contains these exact third-party packages. The
-release build checks the Bun metafile against this list before publication.
+The generated Cogenity executables contain these exact third-party packages.
+The release build checks the Bun metafile against this list before publication.
 
 - `@commander-js/extra-typings` 15.0.0
 - Commander.js 15.0.0
 - Zod 4.4.3
 
-The installer downloads an unmodified Bun 1.3.14 runtime directly from the
-[official Bun release](https://github.com/oven-sh/bun/releases/tag/bun-v1.3.14)
-and verifies its upstream checksum. Panoptiq does not redistribute Bun. Bun's
-own [license and source terms](https://github.com/oven-sh/bun/blob/bun-v1.3.14/LICENSE.md)
-apply to that separate download.
+Each executable embeds the Bun 1.3.14 runtime. Bun itself uses the MIT license
+and includes components under other licenses, including JavaScriptCore and
+WebKit components under LGPL-2. Bun's exact
+[license and source terms](https://github.com/oven-sh/bun/blob/bun-v1.3.14/LICENSE.md)
+apply to the embedded runtime.
 
 ## @commander-js/extra-typings 15.0.0
 
