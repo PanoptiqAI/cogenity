@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Cogenity is a multi-account manager for Claude Code and Codex. Keep customer, work, and private accounts separate, then use the right account for each project."
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Cogenity by PANOPTIQ" />
+    <meta
+      property="og:description"
+      content="Use the right Claude Code or Codex account for every project."
+    />
+    <meta property="og:url" content="https://panoptiqai.github.io/cogenity/" />
+    <link rel="canonical" href="https://panoptiqai.github.io/cogenity/" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Cogenity | Multi-account manager for Claude Code and Codex</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./" aria-label="Cogenity home">
+          <span aria-hidden="true">$</span> cogenity
+        </a>
+        <nav aria-label="Primary navigation">
+          <a href="#install">Install</a>
+          <a href="https://github.com/PanoptiqAI/cogenity">GitHub</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero shell" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">CG / MULTI-ACCOUNT MANAGER</p>
+          <h1 id="hero-title">The right AI account for every project.</h1>
+          <p class="lede">
+            Keep customer, work, and private Claude Code or Codex accounts
+            separate. Pick one when you start, or let Cogenity choose an account
+            based on available capacity.
+          </p>
+          <div class="actions">
+            <a class="button button-primary" href="#install">Install Cogenity</a>
+            <a class="button" href="https://github.com/PanoptiqAI/cogenity">
+              View on GitHub
+            </a>
+          </div>
+        </div>
+
+        <figure class="terminal" aria-labelledby="terminal-title">
+          <figcaption class="terminal-bar" id="terminal-title">
+            <span>two-projects.sh</span>
+            <span>claude code</span>
+          </figcaption>
+          <pre><code><span class="comment"># Customer A</span>
+<span class="prompt">$</span> cd ~/work/customer-a
+<span class="prompt">$</span> cogenity --claude \
+    --account dev@customer-a.example
+
+<span class="comment"># Private</span>
+<span class="prompt">$</span> cd ~/code/private
+<span class="prompt">$</span> cogenity --claude \
+    --account me@personal.example</code></pre>
+        </figure>
+      </section>
+
+      <section class="section" aria-labelledby="problem-title">
+        <div class="shell statement">
+          <div>
+            <p class="eyebrow">THE PROBLEM</p>
+            <h2 id="problem-title">One machine. Accounts that should not mix.</h2>
+          </div>
+          <p class="section-copy">
+            Provider CLIs usually keep one active login. Switching projects can
+            mean signing out, copying auth files, or starting a session with the
+            wrong account. Cogenity gives each account its own profile and starts
+            the selected CLI in your current directory.
+          </p>
+        </div>
+        <ol class="shell features" aria-label="How Cogenity works">
+          <li>
+            <span>01</span>
+            <h3>Add your accounts</h3>
+            <p>Enroll Claude Code and Codex accounts with the picker or CLI.</p>
+          </li>
+          <li>
+            <span>02</span>
+            <h3>Keep them separate</h3>
+            <p>Credentials, settings, and provider state stay in separate profiles.</p>
+          </li>
+          <li>
+            <span>03</span>
+            <h3>Start in your project</h3>
+            <p>Choose an account and continue in the project you already opened.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section install" id="install" aria-labelledby="install-title">
+        <div class="shell install-grid">
+          <div>
+            <p class="eyebrow">GET STARTED</p>
+            <h2 id="install-title">Install it with Homebrew.</h2>
+            <p class="section-copy">
+              The macOS download is a standalone executable. Install Claude Code
+              2.1.144 or newer, Codex, or both before you add an account.
+            </p>
+          </div>
+          <div class="command-block">
+            <p>01 / Install</p>
+            <pre><code><span class="prompt">$</span> brew install PanoptiqAI/tap/cogenity</code></pre>
+            <p>02 / Add accounts</p>
+            <pre><code><span class="prompt">$</span> cogenity login claude dev@customer-a.example
+<span class="prompt">$</span> cogenity login claude me@personal.example</code></pre>
+            <p>03 / Start</p>
+            <pre><code><span class="prompt">$</span> cogenity</code></pre>
+          </div>
+        </div>
+        <div class="shell support" aria-labelledby="support-title">
+          <h3 id="support-title">Platform support</h3>
+          <dl>
+            <div><dt>macOS 13+</dt><dd>Supported on arm64 and x86-64.</dd></div>
+            <div><dt>glibc Linux</dt><dd>Experimental on arm64 and x86-64.</dd></div>
+            <div><dt>musl Linux</dt><dd>Unsupported.</dd></div>
+            <div><dt>Windows</dt><dd>Unsupported.</dd></div>
+          </dl>
+          <p>
+            On Linux, or without Homebrew, use the verified installer from the
+            <a href="https://github.com/PanoptiqAI/cogenity#readme">GitHub README</a>.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-inner">
+        <p>Cogenity by PANOPTIQ.</p>
+        <p>
+          Not affiliated with Anthropic or OpenAI.
+          <a href="https://github.com/PanoptiqAI/cogenity/blob/main/THIRD_PARTY_NOTICES.md">
+            Third-party notices
+          </a>
+        </p>
+      </div>
+    </footer>
+  </body>
+</html>
