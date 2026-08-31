@@ -2,7 +2,7 @@
 set -eu
 
 repository=PanoptiqAI/cogenity
-release_version=0.16.0
+release_version=0.18.0
 install_dir=${COGENITY_INSTALL_DIR:-"$HOME/.local/bin"}
 operating_system=$(uname -s)
 architecture=$(uname -m)
