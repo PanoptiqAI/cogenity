@@ -289,6 +289,13 @@ pre {
   border-bottom: 0;
 }
 
+.quickstart-note {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.5;
+}
+
 .support h3 {
   padding-bottom: 16px;
   border-bottom: 1px solid var(--line);

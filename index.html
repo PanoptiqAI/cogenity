@@ -103,9 +103,15 @@
           <div class="command-block">
             <p>01 / Install</p>
             <pre><code><span class="prompt">$</span> <span class="command">brew</span> <span class="argument">install PanoptiqAI/tap/cogenity</span></code></pre>
-            <p>02 / Start</p>
-            <pre><code><span class="prompt">$</span> <span class="command">cogenity</span></code></pre>
+            <p>02 / Add a Claude account</p>
+            <pre><code><span class="prompt">$</span> <span class="command">cogenity login</span> <span class="argument">claude dev@customer-a.ai</span></code></pre>
+            <p>03 / Start</p>
+            <pre><code><span class="prompt">$</span> <span class="command">cogenity</span> <span class="option">--claude</span> <span class="option">--account</span> <span class="argument">dev@customer-a.ai</span></code></pre>
           </div>
+          <p class="quickstart-note">
+            Two accounts are free in total across Claude Code and Codex.
+            Run <code>cogenity upgrade</code> when you need a third account.
+          </p>
         </div>
       </section>
 
@@ -123,25 +129,6 @@
           </p>
         </div>
         <div class="shell examples">
-          <article class="example">
-            <p class="eyebrow">PROJECT ACCOUNTS</p>
-            <h3>Start each project with the account it needs.</h3>
-            <figure
-              class="terminal"
-              aria-label="Cogenity starts Claude Code with separate accounts for two projects"
-            >
-              <pre><code><span class="comment"># Customer A</span>
-<span class="prompt">$</span> <span class="command">cd</span> <span class="argument">~/work/customer-a</span>
-<span class="prompt">$</span> <span class="command">cogenity</span> <span class="option">--claude</span> \
-    <span class="option">--account</span> <span class="argument">dev@customer-a.ai</span>
-
-<span class="comment"># Private</span>
-<span class="prompt">$</span> <span class="command">cd</span> <span class="argument">~/code/private</span>
-<span class="prompt">$</span> <span class="command">cogenity</span> <span class="option">--claude</span> \
-    <span class="option">--account</span> <span class="argument">me@personal.ai</span></code></pre>
-            </figure>
-          </article>
-
           <article class="example">
             <p class="eyebrow">ACCOUNT PICKER</p>
             <h3>Pick an account and see its limits.</h3>
@@ -161,8 +148,29 @@
             </figure>
           </article>
 
+          <article class="example">
+            <p class="eyebrow">PROJECT ACCOUNTS</p>
+            <h3>Start each project with the account it needs.</h3>
+            <figure
+              class="terminal"
+              aria-label="Cogenity starts Claude Code with separate accounts for two projects"
+            >
+              <pre><code><span class="comment"># Customer A</span>
+<span class="prompt">$</span> <span class="command">cogenity</span> <span class="option">--claude</span> \
+    <span class="option">--account</span> <span class="argument">dev@customer-a.ai</span>
+
+<span class="comment"># Private</span>
+<span class="prompt">$</span> <span class="command">cogenity</span> <span class="option">--claude</span> \
+    <span class="option">--account</span> <span class="argument">me@personal.ai</span></code></pre>
+            </figure>
+            <p class="quickstart-note">
+              Each command opens Claude Code as usual with the selected local profile.
+              Cogenity does not proxy or modify the Claude Code session.
+            </p>
+          </article>
+
           <article class="example example-status">
-            <p class="eyebrow">STATUS</p>
+            <p class="eyebrow">PRO STATUS</p>
             <h3>See all your accounts and limits at a glance.</h3>
             <figure class="terminal" aria-label="Cogenity status command">
               <pre><code><span class="prompt">$</span> <span class="command">cogenity status</span>
