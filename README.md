@@ -1,8 +1,8 @@
 # Cogenity for Claude Code and Codex
 
-Cogenity by PANOPTIQ is a vendor-neutral multi-account manager for Claude Code
-and Codex. It keeps each account's settings and credentials separate, then
-starts the provider with the account you choose.
+Cogenity by Kenneth Lynne is a vendor-neutral multi-account manager for Claude
+Code and Codex. It keeps each account's settings and credentials separate,
+then starts the provider with the account you choose.
 
 ## Usage
 
@@ -40,7 +40,7 @@ enroll your accounts. Replace the example emails with your real login
 addresses.
 
 ```sh
-brew install PanoptiqAI/tap/cogenity
+brew install kennethlynne/tap/cogenity
 cogenity login claude dev@customer-a.ai
 cogenity --claude --account dev@customer-a.ai
 ```
@@ -50,14 +50,14 @@ Repeat `cogenity login` for each account you want to keep separate.
 With mise, replace the Homebrew install command with:
 
 ```sh
-mise use -g github:PanoptiqAI/cogenity@latest
+mise use -g github:kennethlynne/cogenity@latest
 ```
 
 You can also run `cogenity` and select **Add account**. On Linux, or without
 Homebrew, use the installer:
 
 ```sh
-curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/PanoptiqAI/cogenity/main/install.sh | sh
+curl --proto '=https' --tlsv1.2 -fsSL https://raw.githubusercontent.com/kennethlynne/cogenity/main/install.sh | sh
 ```
 
 ### Platform support
@@ -88,8 +88,8 @@ AgentBox choices appear only outside an AgentBox, in a repository with
 
 ## Cogenity Pro
 
-Two accounts are free in total across Claude Code and Codex. Cogenity Pro is
-required when you add a third account.
+Three accounts are free in total across Claude Code and Codex. Cogenity Pro is
+required when you add a fourth account.
 
 ```sh
 cogenity upgrade    # Buy Pro in the browser
@@ -131,14 +131,14 @@ This repository contains the installer and release executables, not Cogenity's
 TypeScript source or development history. Compiled executables can still be
 inspected.
 
-Cogenity is made by PANOPTIQ. It is not affiliated with, endorsed by, or
+Cogenity is made by Kenneth Lynne. It is not affiliated with, endorsed by, or
 supported by Anthropic or OpenAI. You are responsible for complying with
 provider terms, controlling account access, and paying usage charges. You are
 also responsible for actions taken in unsafe mode.
-The software is provided as-is, without warranty. Copyright PANOPTIQ AS. All
-rights reserved. PANOPTIQ permits users to download and run this installer and
-the official Cogenity executables. It grants no additional right to modify or
-redistribute PANOPTIQ's code. Third-party components remain under their own
-licenses. Each executable embeds Bun under Bun's own license.
+The software is provided as-is, without warranty. Copyright Kenneth Lynne AS.
+All rights reserved. Kenneth Lynne AS permits users to download and run this
+installer and the official Cogenity executables. It grants no additional right
+to modify or redistribute the Cogenity code. Third-party components remain
+under their own licenses. Each executable embeds Bun under Bun's own license.
 
 See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for bundled software terms.

@@ -1,8 +1,8 @@
 #!/bin/sh
 set -eu
 
-repository=PanoptiqAI/cogenity
-release_version=0.22.1
+repository=kennethlynne/cogenity
+release_version=0.23.0
 install_dir=${COGENITY_INSTALL_DIR:-"$HOME/.local/bin"}
 operating_system=$(uname -s)
 architecture=$(uname -m)
