@@ -2,7 +2,7 @@
 set -eu
 
 repository=PanoptiqAI/cogenity
-release_version=0.20.0
+release_version=0.22.1
 install_dir=${COGENITY_INSTALL_DIR:-"$HOME/.local/bin"}
 operating_system=$(uname -s)
 architecture=$(uname -m)
@@ -70,8 +70,10 @@ sha256_file() {
 temporary_dir=$(mktemp -d)
 release_url="https://github.com/$repository/releases/download/v$release_version"
 curl --proto '=https' --tlsv1.2 --fail --show-error --location \
+  --connect-timeout 10 --max-time 60 \
   --output "$temporary_dir/$asset" "$release_url/$asset"
 curl --proto '=https' --tlsv1.2 --fail --show-error --location \
+  --connect-timeout 10 --max-time 60 \
   --output "$temporary_dir/SHA256SUMS" "$release_url/SHA256SUMS"
 
 digest=$(awk -v asset="$asset" '$2 == asset { print $1 }' "$temporary_dir/SHA256SUMS")
@@ -87,6 +89,12 @@ esac
 staged_binary=$(mktemp "$install_dir/.cogenity.XXXXXX")
 cp "$temporary_dir/$asset" "$staged_binary"
 chmod 755 "$staged_binary"
+installed_version=$("$staged_binary" --version 2>/dev/null) || installed_version=
+[ "$installed_version" = "$release_version" ] || {
+  printf 'Downloaded Cogenity reports version %s, expected %s.\n' \
+    "${installed_version:-unknown}" "$release_version" >&2
+  exit 1
+}
 trap '' HUP INT TERM
 mv -f "$staged_binary" "$install_dir/cogenity"
 staged_binary=

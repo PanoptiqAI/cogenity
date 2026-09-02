@@ -12,6 +12,7 @@ Run `cogenity` without flags to open the provider and account picker.
 cogenity             # Pick or add an account
 cogenity --codex     # Pick a Codex account
 cogenity status      # Check account capacity
+cogenity update      # Install a new Cogenity release
 cogenity --yolo      # Use unsafe permission mode
 ```
 
@@ -46,6 +47,12 @@ cogenity --claude --account dev@customer-a.ai
 
 Repeat `cogenity login` for each account you want to keep separate.
 
+With mise, replace the Homebrew install command with:
+
+```sh
+mise use -g github:PanoptiqAI/cogenity@latest
+```
+
 You can also run `cogenity` and select **Add account**. On Linux, or without
 Homebrew, use the installer:
 
@@ -65,6 +72,13 @@ x86-64 processors require SSE4.2 (Intel Nehalem, AMD Bulldozer, or newer).
 The installer checks the release checksum and writes
 `~/.local/bin/cogenity`. Set `COGENITY_INSTALL_DIR` to change the destination.
 Local account and launch commands do not need a separate Bun installation.
+
+Cogenity checks for a new release once a day without delaying a launch. It
+only shows a notice. Run `cogenity update` when you are ready. Homebrew and
+mise remain the install owner. Standalone installs use the verified release
+installer. A failed check waits one day before it retries. Run
+`cogenity doctor` to see the saved failure. Set `COGENITY_UPDATE_CHECK=0` to
+disable update checks.
 
 Cogenity keeps profiles under `~/.config/cogenity`. On macOS, Claude Code uses
 the system Keychain. On Linux, credentials stay inside each profile directory.
@@ -105,6 +119,9 @@ customer portal. The hidden prompt does not save the license key. Do not run
 - `~/.config/cogenity/telemetry.json` holds a separate random machine ID and
   your telemetry choice. It is not the Pro installation ID. Run
   `cogenity telemetry off` to turn reporting off.
+- `~/.config/cogenity/update.json` holds release check times, release versions,
+  notice times, and a safe error category. It contains no account or telemetry
+  ID. The hidden update refresh disables telemetry.
 
 Cogenity never sends Claude Code or Codex credentials to the Worker. The Worker
 contacts Creem only to create a checkout, activate an entered license, or open
